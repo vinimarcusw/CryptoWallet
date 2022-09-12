@@ -1,4 +1,5 @@
 import 'package:crypto_wallet/presenter/home_page.dart';
+import 'package:crypto_wallet/presenter/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Crypto Wallet',
-      home: HomePage(),
+      home: SplashScreen(),
     );
   }
 }
