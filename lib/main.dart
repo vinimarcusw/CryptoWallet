@@ -1,9 +1,12 @@
-import 'package:crypto_wallet/presenter/home_page.dart';
-import 'package:crypto_wallet/presenter/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'shared/utils/splash_screen.dart';
 
 void main() => runApp(
-      const MyApp(),
+      const ProviderScope(child: MyApp()),
     );
 
 class MyApp extends StatelessWidget {
@@ -13,6 +16,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('pt', 'BR'),
+        Locale('en', ''),
+      ],
       title: 'Crypto Wallet',
       home: SplashScreen(),
     );

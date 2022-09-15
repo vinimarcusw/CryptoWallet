@@ -1,4 +1,4 @@
-import 'package:crypto_wallet/presenter/home_page.dart';
+import 'package:crypto_wallet/portfolio/view/portfolio_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) => const PortfolioPage(),
         ),
       );
     });
