@@ -3,5 +3,10 @@
     "monetary" : "US$",
     "walletTotal" : "Total coin value",
     "bottomNavBarPortfolio" : "Portfolio",
-    "bottomNavBarMovements" : "Movements"
+    "bottomNavBarMovements" : "Movements",
+    "detailsAppBarTitle" : "Details",
+    "detailsActualPrice" : "Actual Price",
+    "detailsVariation" : "24H Variation",
+    "detailsQuantity" : "Quantity",
+    "detailsValue" : "Value"
 }

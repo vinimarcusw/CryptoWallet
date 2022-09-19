@@ -1,3 +1,4 @@
+import 'package:crypto_wallet/details/view/details_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../movements/view/movements_page.dart';
@@ -8,6 +9,7 @@ class AppRoutes {
   static Map<String, Widget> routes = {
     '/splash': const SplashScreen(),
     '/portfolio': const PortfolioPage(),
-    '/movements': const MovementsPage()
+    '/movements': const MovementsPage(),
+    '/details': const DetailsPage()
   };
 }

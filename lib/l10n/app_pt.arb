@@ -3,5 +3,10 @@
     "monetary" : "R$",
     "walletTotal" : "Valor total de moedas",
     "bottomNavBarPortfolio" : "Portfolio",
-    "bottomNavBarMovements" : "Movimentações"
+    "bottomNavBarMovements" : "Movimentações",
+    "detailsAppBarTitle" : "Detalhes",
+     "detailsActualPrice" : "Preço Atual",
+    "detailsVariation" : "Variação 24H",
+    "detailsQuantity" : "Quantidade",
+    "detailsValue" : "Valor"
 }
