@@ -1,3 +1,4 @@
+import 'package:crypto_wallet/details/widgets/crypto_variation_info.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -27,9 +28,7 @@ class DetailsPageBody extends HookConsumerWidget {
             value: asset.cryptoTotal,
             title: AppLocalizations.of(context)!.detailsActualPrice),
         const Divider(thickness: 1),
-        CryptoPricesInformation(
-            value: asset.cryptoTotal,
-            title: AppLocalizations.of(context)!.detailsActualPrice),
+        const CryptoVariationInfo(),
         const Divider(thickness: 1),
         const CryptoFractionBottomInfo(),
         const Divider(thickness: 1),
