@@ -22,6 +22,7 @@ class _DayButtonState extends ConsumerState<DayButton> {
       onTap: () => ref.read(timeWindowProvider.notifier).state = widget.day,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 4),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: widget.day == dayProvider

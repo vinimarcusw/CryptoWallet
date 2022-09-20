@@ -1,7 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../shared/utils/formatter.dart';
 import '../controller/asset_provider.dart';
 import '../controller/time_window_provider.dart';
 
@@ -22,11 +24,10 @@ class _MiddleLineChartState extends ConsumerState<MiddleLineChart> {
 
     List<FlSpot> createGraph() {
       List<FlSpot> graphInfo = [];
-      double counter = 0;
 
       for (int index = 0; index < days.state; index++) {
-        graphInfo.add(FlSpot(counter, asset.cryptoValues.reversed.toList()[index]));
-        counter++;
+        graphInfo.add(FlSpot(
+            index.toDouble(), asset.cryptoValues.reversed.toList()[index]));
       }
 
       return graphInfo;
@@ -57,6 +58,25 @@ class _MiddleLineChartState extends ConsumerState<MiddleLineChart> {
                 dotData: FlDotData(show: false),
               ),
             ],
+            lineTouchData: LineTouchData(
+              touchTooltipData: LineTouchTooltipData(
+                tooltipBgColor: Colors.grey.shade800,
+                getTooltipItems: (data) {
+                  return data.map(
+                    (item) {
+                      return LineTooltipItem(
+                        '${AppLocalizations.of(context)!.monetary} ${Formatter.currencyFormatter(item.y)}',
+                        const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      );
+                    },
+                  ).toList();
+                },
+              ),
+            ),
           ),
         ),
       ),

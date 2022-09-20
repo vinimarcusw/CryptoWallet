@@ -22,10 +22,10 @@ class Formatter {
     return formatedNumber.format(value);
   }
 
-  static variationFormatter(double totalValue, double actualValue) {
-    totalValue = totalValue * 100;
+  static variationFormatter(double todayValue, double yesterdayValue) {
+    todayValue = todayValue * 100;
 
-    double result = totalValue / actualValue;
+    double result = todayValue / yesterdayValue;
 
     result = result - 100;
 
