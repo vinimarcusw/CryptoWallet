@@ -18,7 +18,7 @@ class CryptoTotalValueRow extends HookConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
           child: Text(
             '${AppLocalizations.of(context)!.monetary} ${Formatter.currencyFormatter(asset.cryptoTotal)}',
             style: const TextStyle(

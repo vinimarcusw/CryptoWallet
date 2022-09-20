@@ -33,9 +33,9 @@ class Formatter {
         NumberFormat.currency(customPattern: '#.##', decimalDigits: 2);
 
     if (result < 0) {
-      return formatedNumber.format(result);
+      return '${formatedNumber.format(result)} %';
     }
 
-    return '+ ${formatedNumber.format(result)}';
+    return '+ ${formatedNumber.format(result)} %';
   }
 }

@@ -40,14 +40,13 @@ class _CryptoCoinsListState extends ConsumerState<CryptoCoinsList> {
               ListTile(
                 minVerticalPadding: 10,
                 onTap: () {
-                    ref.read(assetProvider.notifier).state = assets[index];
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  AppRoutes.routes['/details']!),
-                    );
-                  },
+                  ref.read(assetProvider.notifier).state = assets[index];
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            AppRoutes.routes['/details']!),
+                  );
+                },
                 leading: CircleAvatar(
                   radius: 25,
                   backgroundImage:
@@ -78,15 +77,13 @@ class _CryptoCoinsListState extends ConsumerState<CryptoCoinsList> {
                       children: [
                         Text(
                           visible
-                              ? AppLocalizations.of(context)!.monetary +
-                                  Formatter.currencyFormatter(
-                                      assets[index].cryptoTotal)
+                              ? '${AppLocalizations.of(context)!.monetary} ${Formatter.currencyFormatter(assets[index].cryptoTotal)}'
                               : "****",
                           style: const TextStyle(fontSize: 20),
                         ),
                         Text(
                           visible
-                              ? "${Formatter.currencyFormatter(assets[index].cryptoTotal / assets[index].cryptoValues.last)} ${assets[index].cryptoSymbol}"
+                              ? "${Formatter.fractionFormatter(assets[index].cryptoValues.last, assets[index].cryptoTotal, false)} ${assets[index].cryptoSymbol}"
                               : "****",
                           style:
                               const TextStyle(fontSize: 15, color: Colors.grey),

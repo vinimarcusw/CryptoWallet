@@ -22,10 +22,11 @@ class _MiddleLineChartState extends ConsumerState<MiddleLineChart> {
 
     List<FlSpot> createGraph() {
       List<FlSpot> graphInfo = [];
+      double counter = 0;
 
       for (int index = 0; index < days.state; index++) {
-        graphInfo.add(
-            FlSpot(double.parse(index.toString()), asset.cryptoValues[index]));
+        graphInfo.add(FlSpot(counter, asset.cryptoValues.reversed.toList()[index]));
+        counter++;
       }
 
       return graphInfo;
