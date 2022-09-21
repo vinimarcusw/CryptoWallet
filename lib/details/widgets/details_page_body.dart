@@ -1,3 +1,4 @@
+import 'package:crypto_wallet/details/controller/time_window_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -20,7 +21,7 @@ class DetailsPageBody extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asset = ref.watch(assetProvider);
-
+    final dayProvider = ref.watch(timeWindowProvider);
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Padding(
@@ -33,7 +34,7 @@ class DetailsPageBody extends HookConsumerWidget {
             const GraphicDaysButtons(),
             const Divider(thickness: 1),
             CryptoPricesInformation(
-                value: asset.cryptoValues.last,
+                value: asset.cryptoValues.reversed.toList()[dayProvider - 1],
                 title: AppLocalizations.of(context)!.detailsActualPrice),
             const Divider(thickness: 1),
             const CryptoVariationInfo(),
