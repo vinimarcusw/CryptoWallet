@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../details/controller/asset_provider.dart';
+import '../../shared/utils/app_routes.dart';
 import '../../shared/utils/formatter.dart';
 import '../controller/total_value_provider.dart';
 import '../controller/visibility_provider.dart';
@@ -37,7 +39,14 @@ class _CryptoCoinsListState extends ConsumerState<CryptoCoinsList> {
               ),
               ListTile(
                 minVerticalPadding: 10,
-                onTap: () {},
+                onTap: () {
+                  ref.read(assetProvider.notifier).state = assets[index];
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            AppRoutes.routes['/details']!),
+                  );
+                },
                 leading: CircleAvatar(
                   radius: 25,
                   backgroundImage:
@@ -68,15 +77,13 @@ class _CryptoCoinsListState extends ConsumerState<CryptoCoinsList> {
                       children: [
                         Text(
                           visible
-                              ? AppLocalizations.of(context)!.monetary +
-                                  Formatter.currencyFormatter(
-                                      assets[index].cryptoTotal)
+                              ? '${AppLocalizations.of(context)!.monetary} ${Formatter.currencyFormatter(assets[index].cryptoTotal)}'
                               : "****",
                           style: const TextStyle(fontSize: 20),
                         ),
                         Text(
                           visible
-                              ? "${Formatter.currencyFormatter(assets[index].cryptoTotal / assets[index].cryptoValue)} ${assets[index].cryptoSymbol}"
+                              ? "${Formatter.fractionFormatter(assets[index].cryptoValues.last, assets[index].cryptoTotal, false)} ${assets[index].cryptoSymbol}"
                               : "****",
                           style:
                               const TextStyle(fontSize: 15, color: Colors.grey),
