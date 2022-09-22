@@ -7,8 +7,8 @@ class AssetRepository {
 
   AssetRepository({required this.assetEndpoint});
 
-  Future<GetAllAssetsResponse> getAllAssets() async {
-    final result = await assetEndpoint.getAllAssets();
+  Future<GetAllAssetsResponse> getAllAssets(String ids, String currency) async {
+    final result = await assetEndpoint.getAllAssets(ids,currency);
     return GetAllAssetsResponse(
       List.from(
         result.data.map(

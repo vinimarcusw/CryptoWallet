@@ -8,8 +8,8 @@ class GetAllAssetsUsecase {
   
   GetAllAssetsUsecase({required this.repository});
 
-  Future<List<AssetViewData>> execute() async {
-    final response = await repository.getAllAssets();
+  Future<List<AssetViewData>> execute(String ids, String currency) async {
+    final response = await repository.getAllAssets(ids, currency);
     return response.toViewData();
   }
 }

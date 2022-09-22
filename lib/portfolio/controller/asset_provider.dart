@@ -5,7 +5,3 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 final assetUsecaseProvider = Provider((ref) {
   return GetAllAssetsUsecase(repository: ref.read(assetRepositoryProvider));
 });
-
-final assetsProvider = FutureProvider( (ref) {
-  return ref.read(assetUsecaseProvider).execute();
-});

@@ -5,8 +5,10 @@ class AssetEndpoint {
 
   AssetEndpoint(this._dio);
 
-  Future<Response> getAllAssets() {
-    return _dio.get(
-        "coins/markets?vs_currency=brl&order=market_cap_desc&per_page=100&page=1&sparkline=false");
+  Future<Response> getAllAssets(String ids, String currency) {
+    return _dio.get("markets", queryParameters: {
+      'vs_currency': currency,
+      'ids': ids,
+    });
   }
 }

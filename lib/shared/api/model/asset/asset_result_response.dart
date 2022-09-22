@@ -33,7 +33,7 @@ class AssetResultResponse {
       symbol: map['symbol'] ?? '',
       image: map['image'] ?? '',
       variation: map['variation'] ?? 0.0,
-      currentPrice: map['currentPrice'] ?? 0.0,
+      currentPrice: map['current_price'] ?? 0.0,
     );
   }
 }
