@@ -25,15 +25,4 @@ class AssetResultResponse {
   }
 
   Map<String, dynamic> toJson() => _$AssetResultResponseToJson(this);
-
-  factory AssetResultResponse.fromMap(Map<String, dynamic> map) {
-    return AssetResultResponse(
-      id: map['id'] ?? '',
-      name: map['name'] ?? '',
-      symbol: map['symbol'] ?? '',
-      image: map['image'] ?? '',
-      variation: map['variation'] ?? 0.0,
-      currentPrice: map['current_price'] ?? 0.0,
-    );
-  }
 }

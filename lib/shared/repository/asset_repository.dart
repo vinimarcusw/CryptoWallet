@@ -12,7 +12,7 @@ class AssetRepository {
     return GetAllAssetsResponse(
       List.from(
         result.data.map(
-          (asset) => AssetResultResponse.fromMap(asset),
+          (asset) => AssetResultResponse.fromJson(asset),
         ),
       ),
     );

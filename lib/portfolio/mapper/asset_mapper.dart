@@ -4,14 +4,14 @@ import '../model/asset_view_data.dart';
 
 extension AssetMapper on GetAllAssetsResponse {
   List<AssetViewData> toViewData() {
-    return results
-        .map((result) => AssetViewData(
-              id: result.id,
-              name: result.name,
-              symbol: result.symbol,
-              image: result.image,
-              variation: result.variation,
-              currentPrice: result.currentPrice,
+    return assets
+        .map((asset) => AssetViewData(
+              id: asset.id,
+              name: asset.name,
+              symbol: asset.symbol,
+              image: asset.image,
+              variation: asset.variation,
+              currentPrice: asset.currentPrice,
             ))
         .toList();
   }

@@ -9,7 +9,7 @@ part of 'get_all_assets_response.dart';
 GetAllAssetsResponse _$GetAllAssetsResponseFromJson(
         Map<String, dynamic> json) =>
     GetAllAssetsResponse(
-      (json['results'])
+      (json['assets'])
           .map((e) => AssetResultResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -17,5 +17,5 @@ GetAllAssetsResponse _$GetAllAssetsResponseFromJson(
 Map<String, dynamic> _$GetAllAssetsResponseToJson(
         GetAllAssetsResponse instance) =>
     <String, dynamic>{
-      'results': instance.results,
+      'results': instance.assets,
     };

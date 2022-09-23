@@ -5,9 +5,9 @@ part 'get_all_assets_response.g.dart';
 
 @JsonSerializable()
 class GetAllAssetsResponse {
-  final List<AssetResultResponse> results;
+  final List<AssetResultResponse> assets;
 
-  GetAllAssetsResponse(this.results);
+  GetAllAssetsResponse(this.assets);
 
   factory GetAllAssetsResponse.fromJson(Map<String, dynamic> json) {
     return _$GetAllAssetsResponseFromJson(json);
